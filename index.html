@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>SETUP — Mi lista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090909;--panel:#111;--panel2:#161616;--line:#292929;--muted:#858585;--text:#f3f3f3;--red:#e34b62;--soft:#29171c;--green:#7fc9a0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#241116 0,transparent 35%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid var(--line)}.brand{font:800 22px 'Barlow Condensed';letter-spacing:3px}.brand span{color:var(--red)}.top small{color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.hero{padding:65px 0 42px;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:end}.eyebrow{color:var(--red);font-size:11px;letter-spacing:3px;font-weight:700;text-transform:uppercase}.hero h1{font:900 clamp(58px,10vw,112px)/.82 'Barlow Condensed';letter-spacing:-2px;margin:17px 0 20px;text-transform:uppercase}.hero h1 span{color:var(--red)}.hero p{color:#aaa;line-height:1.7;max-width:540px;font-size:14px}.hero-card{background:linear-gradient(145deg,#191919,#101010);border:1px solid var(--line);padding:24px;border-radius:14px}.hero-card .cap{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}.hero-card strong{display:block;font:700 36px 'Barlow Condensed';margin:6px 0}.hero-card p{margin:0;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 55px}.stat{background:#101010;border:1px solid var(--line);border-radius:12px;padding:18px}.stat b{font:700 30px 'Barlow Condensed';display:block}.stat span{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}.section-head h2{font:700 34px 'Barlow Condensed';letter-spacing:1px;margin:0;text-transform:uppercase}.section-head p{color:var(--muted);font-size:12px;margin:5px 0 0}.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.item{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:20px;display:flex;gap:16px;position:relative;overflow:hidden;transition:.2s}.item:hover{border-color:#5b343b;transform:translateY(-2px)}.item.done{opacity:.55}.item.done .item-title{text-decoration:line-through}.item-mark{width:42px;height:42px;flex:0 0 42px;border-radius:10px;background:var(--soft);display:grid;place-items:center;color:var(--red);font-size:19px}.item-content{min-width:0;flex:1}.item-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.tag{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);font-weight:700}.price{font-size:12px;color:#ddd;font-weight:700}.item-title{font-size:16px;font-weight:700;margin:8px 0 6px}.desc{font-size:12px;color:#999;line-height:1.6;margin:0 0 13px}.item-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}.priority{font-size:10px;color:var(--muted)}button{font:600 11px 'DM Sans';cursor:pointer;border:1px solid #393939;background:#1b1b1b;color:#ddd;border-radius:7px;padding:8px 11px}button:hover{border-color:var(--red);color:white}.done button{border-color:#386b50;color:var(--green)}
+.lower{margin:56px 0 70px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.box{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:22px}.box h3{font:700 26px 'Barlow Condensed';margin:0 0 6px;text-transform:uppercase}.box>p{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 18px}.addform{display:grid;gap:9px}.addform input,.addform select{width:100%;background:#090909;border:1px solid #333;color:white;border-radius:7px;padding:11px;font:12px 'DM Sans'}.addform button{background:var(--red);border-color:var(--red);color:white;padding:11px}.future{display:grid;gap:12px}.future-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:11px;font-size:12px}.future-row:last-child{border:0;padding:0}.future-row span:last-child{color:var(--muted);text-align:right}.progress{height:6px;background:#292929;border-radius:8px;overflow:hidden;margin-top:12px}.progress i{display:block;height:100%;width:0;background:var(--red);transition:width .25s}
+footer{border-top:1px solid var(--line);padding:22px 0 35px;color:#666;font-size:10px;letter-spacing:1px;display:flex;justify-content:space-between;gap:10px}.empty{display:none;color:var(--muted);font-size:12px;padding:16px 0}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:48px}.hero-card{max-width:none}.items{grid-template-columns:1fr}.lower{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:13px}.stat b{font-size:25px}.top small{font-size:9px}.item{padding:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand">GABRI<span>.</span>SETUP</div><small>Wishlist personal · 2026</small></header>
+<section class="hero">
+<div><div class="eyebrow">Proyecto: mi espacio gaming</div><h1>MI <span>SETUP</span><br>MI RITMO.</h1><p>Una lista para ir montando mi setup poco a poco. Aquí guardo lo que quiero comprar, lo que tengo en mente y lo que ya he conseguido. Sin prisas: cada mejora cuenta.</p></div>
+<div class="hero-card"><div class="cap">Objetivo actual</div><strong>MEJORAR EL CONFORT</strong><p>Primero lo que más voy a notar en el día a día: unos auriculares cómodos y accesorios para tener el escritorio más ordenado.</p></div>
+</section>
+<section class="stats">
+<div class="stat"><b id="total">0</b><span>Artículos en lista</span></div><div class="stat"><b id="bought">0</b><span>Conseguidos</span></div><div class="stat"><b id="percent">0%</b><span>Progreso total</span><div class="progress"><i id="bar"></i></div></div>
+</section>
+<section><div class="section-head"><div><div class="eyebrow">Lista de compras</div><h2>Lo que quiero conseguir</h2><p>Marca un artículo cuando lo hayas comprado.</p></div></div><div class="items" id="items"></div><div class="empty" id="empty">Todavía no hay artículos. ¡Añade el primero abajo!</div></section>
+<section class="lower">
+<div class="box"><h3>Añadir artículo</h3><p>¿Se te ha ocurrido algo para el setup? Guárdalo aquí. Se conservará en este navegador.</p><form class="addform" id="addForm"><input id="name" placeholder="Nombre del artículo" maxlength="70" required><input id="price" placeholder="Precio aproximado (ej. 35 €)" maxlength="25"><input id="note" placeholder="Nota o detalle (opcional)" maxlength="130"><select id="category"><option>Accesorio</option><option>Periférico</option><option>Mobiliario</option><option>Iluminación</option><option>Otro</option></select><button type="submit">+ AÑADIR A MI LISTA</button></form></div>
+<div class="box"><h3>Más adelante</h3><p>Ideas para cuando toque ampliar y reorganizar el espacio.</p><div class="future"><div class="future-row"><span>Silla ergonómica</span><span>Prioridad futura</span></div><div class="future-row"><span>Escritorio más amplio</span><span>Cuando haya espacio</span></div><div class="future-row"><span>Iluminación LED ambiental</span><span>Para completar el ambiente</span></div><div class="future-row"><span>Mejoras de organización</span><span>Según lo necesite</span></div></div></div>
+</section>
+<footer><span>SETUP WISHLIST · GABRI</span><span>HECHO PARA IR MEJORANDO POCO A POCO</span></footer>
+</div>
+<script>
+const starter=[
+{id:'headset',name:'HyperX CloudX Stinger 2 Core',price:'Hasta 60 €',category:'PERIFÉRICO',note:'Mi candidato principal. Cable de 3,5 mm para el mando de Xbox, almohadillas circumaurales y micrófono abatible para silenciarlo.',priority:'Prioridad alta',icon:'◖'},
+{id:'mat',name:'Alfombrilla XL negra',price:'Por decidir',category:'ACCESORIO',note:'Medir primero la mesa para elegir un tamaño que encaje bien.',priority:'Prioridad media',icon:'▰'},
+{id:'stand',name:'Soporte para auriculares',price:'Por decidir',category:'ACCESORIO',note:'Para dejar los cascos ordenados cuando no los esté usando.',priority:'Prioridad media',icon:'⌁'},
+{id:'cables',name:'Organizadores de cables',price:'Económico',category:'ORGANIZACIÓN',note:'Clips o bridas para mantener los cables recogidos.',priority:'Prioridad media',icon:'⌘'}
+];
+let custom=JSON.parse(localStorage.getItem('setup-custom')||'[]');
+let bought=JSON.parse(localStorage.getItem('setup-bought')||'[]');
+function all(){return [...starter,...custom]}
+function save(){localStorage.setItem('setup-custom',JSON.stringify(custom));localStorage.setItem('setup-bought',JSON.stringify(bought))}
+function render(){const list=all();document.getElementById('items').innerHTML=list.map(x=>{const done=bought.includes(x.id);return '<article class="item '+(done?'done':'')+'"><div class="item-mark">'+(x.icon||'＋')+'</div><div class="item-content"><div class="item-top"><span class="tag">'+esc(x.category)+'</span><span class="price">'+esc(x.price||'Por decidir')+'</span></div><div class="item-title">'+esc(x.name)+'</div><p class="desc">'+esc(x.note||'Sin notas todavía.')+'</p><div class="item-foot"><span class="priority">'+(done?'✓ CONSEGUIDO':esc(x.priority||'En la lista'))+'</span><button data-id="'+esc(x.id)+'">'+(done?'Desmarcar':'Marcar comprado')+'</button></div></div></article>'}).join('');document.getElementById('empty').style.display=list.length?'none':'block';const n=list.length,b=bought.filter(id=>list.some(x=>x.id===id)).length,p=n?Math.round(b/n*100):0;document.getElementById('total').textContent=n;document.getElementById('bought').textContent=b;document.getElementById('percent').textContent=p+'%';document.getElementById('bar').style.width=p+'%';document.querySelectorAll('[data-id]').forEach(btn=>btn.addEventListener('click',()=>{const id=btn.dataset.id;bought=bought.includes(id)?bought.filter(x=>x!==id):[...bought,id];save();render()}))}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('addForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('name').value.trim();if(!name)return;custom.push({id:'custom-'+Date.now(),name,price:document.getElementById('price').value.trim()||'Por decidir',category:document.getElementById('category').value.toUpperCase(),note:document.getElementById('note').value.trim(),priority:'Añadido por mí',icon:'＋'});save();e.target.reset();render()});
+render();
+</script>
+</body></html>
